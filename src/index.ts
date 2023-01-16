@@ -28,3 +28,35 @@ console.log('mesTypes.q :>> ', mesTypes.q);
  * Partie 2 - Assertion de types
  */
 
+console.warn("Partie 2 - Assertion de types");
+// Voir src/docs/assertionTypes.ts
+
+/**
+ * Partie 3 - Narrowing
+ */
+
+console.warn("Partie 3 - Narrowing");
+
+import { printId, exempleN, isDate, isUser, TUser } from "./docs/narrowing";
+
+printId(12)
+printId('a')
+printId(null)
+
+exempleN('a', 'a')
+exempleN('a', true)
+exempleN(12, true)
+
+let birthDate = new Date('03/04/1996')
+
+console.log('Date [03/04/1996]:>> ', isDate(birthDate));
+console.log('String [03/03/1001]:>> ', isDate('03/03/1001'));
+
+
+let user = new TUser('Quentin');
+console.log('isUser(user) :>> ', isUser(user));
+
+/**
+ * Partie 4 - Custom Types
+ */
+
