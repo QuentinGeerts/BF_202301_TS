@@ -22,6 +22,20 @@ Une fois que nodeJS a été installé, vous pouvez installer les différentes d�
 ou 
 - `npm install typescript ts-loader webpack webpack-cli`
 
+Ensuite entrez dans le terminal : `npx webpack init`
+Acceptez l'installation de webpack-cli/generators
+- Selectionnez TypeScript
+- dev-server => no
+- HTML files => no
+- PWA support => no
+- None
+- prettier => no
+- npm
+- override package.json => y
+
+`npm run watch`
+
+---
 
 Ensuite, créer deux fichiers à la racine du projet :
 - tsconfig.js
