@@ -23,3 +23,8 @@ console.log('mesTypes.n :>> ', mesTypes.n);
 console.log('mesTypes.o :>> ', mesTypes.o);
 console.log('mesTypes.p :>> ', mesTypes.p);
 console.log('mesTypes.q :>> ', mesTypes.q);
+
+/**
+ * Partie 2 - Assertion de types
+ */
+
