@@ -1,4 +1,4 @@
-# Matières des matières
+# Table des matières
 
 0. Installation et démarrage
 1. Types
@@ -13,6 +13,10 @@
 
 ## Installation et configuration
 Installez [nodeJS](https://nodejs.org/en/) en version LTS ou https://nodejs.org/en/
+
+Initialiser un projet avec `npm init`
+Ensuite ajouter un .gitignore avec comme contenu `node_modules`
+ou `echo "node_modules" > .gitignore` 
 
 Une fois que nodeJS a été installé, vous pouvez installer les différentes dépendances en lcoal.
 - `npm install typescript`
