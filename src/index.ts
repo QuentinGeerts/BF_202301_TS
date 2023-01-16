@@ -74,7 +74,7 @@ let admin2: Admin2 = {
     roleId: "",
     lastName: "",
     firstName: ""
-}
+};
 
 console.log('admin :>> ', admin);
 
@@ -87,6 +87,36 @@ console.log('idString :>> ', idString);
 // console.log('idBooleen :>> ', idBooleen);
 
 let date: DateString = "03/04/1996";
-let date2: DateString = new Date().toString()
+let date2: DateString = new Date().toString();
 console.log('date :>> ', date);
 console.log('date :>> ', date2);
+
+/**
+ * Partie 5 - Generics
+ */
+
+console.warn("Partie 5 - Generics");
+
+import { identity, identity2, identity3 } from './docs/generics';
+
+// On perd le type dynamique passé en paramètre à cause du any
+const id1 = identity(3); 
+
+console.log('id1 :>> ', id1);
+console.log('typeof id1 :>> ', typeof id1);
+
+const id2 = identity2<string>('e');
+console.log('id2 :>> ', id2);
+console.log('typeof id2 :>> ', typeof id2);
+
+const id3 = identity2<Id>(5);
+console.log('id3 :>> ', id3);
+console.log('typeof id3 :>> ', typeof id3);
+
+const id4 = identity2<Id>('a');
+console.log('id4 :>> ', id4);
+console.log('typeof id4 :>> ', typeof id4);
+
+const id5 = identity3<string, number>("Coucou", 42)
+console.log('id5 :>> ', id5);
+console.log('typeof id5 :>> ', typeof id5);
