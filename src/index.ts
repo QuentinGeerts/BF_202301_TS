@@ -179,3 +179,15 @@ console.log(myTotal.sub(5, 6));
 
 
 // let myTotal2 = new Mathematique<string, string>();
+
+/**
+ * Partie 6 - Classes
+ */
+
+console.warn("Partie 6 - Classes");
+
+import {MyUser} from './docs/classes';
+
+let myUser = new MyUser(1, 'Geerts');
+
+console.log('myUser :>> ', myUser);
