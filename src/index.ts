@@ -249,3 +249,30 @@ import { DateConverter } from "./docs/classes";
 
 console.log(DateConverter.convertTimeStampToDate(new Date().getTime().toString()));
 
+/**
+ * Partie 7 - Overloads
+ */
+
+import { fn, fn2 } from './docs/overloads'
+
+console.log(fn('Hello'))
+console.log(fn('Hello', 'World'))
+console.log(fn('Hello', 'World', '!'))
+
+console.log('fn2 string :>>', fn2('Bonjour'));
+console.log('fn2 number :>>', fn2(5));
+console.log('fn2 booléen :>>', fn2(true));
+
+import { Animal, P } from "./docs/overloads";
+
+let noirau: Animal = { nom: 'Noirau', type: 'chat' }
+let bill: Animal = { nom: 'Bill', type: 'chien' }
+let titi: Animal = { nom: 'Titi', type: 'canari' }
+
+let quentin = new P('Geerts', 'Quentin')
+let melanie = new P('Geerts', 'Mélanie', new Date('08-05-1988'), 'f', [{nom: 'Willy', type: 'dauphin'} as Animal])
+
+quentin.animaux = [noirau, bill, titi]
+
+console.log('quentin :>> ', quentin);
+console.log('quentin :>> ', melanie);
