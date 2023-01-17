@@ -171,8 +171,8 @@ console.log('x :>> ', getProperty(x, 'lastName'));
 
 
 let myTotal = new Mathematique<number, number>();
-myTotal.add = (x, y) => x + y
-myTotal.sub = (x, y) => x - y
+myTotal.add = (x, y) => x + y;
+myTotal.sub = (x, y) => x - y;
 
 console.log(myTotal.add(5, 6));
 console.log(myTotal.sub(5, 6));
@@ -186,8 +186,48 @@ console.log(myTotal.sub(5, 6));
 
 console.warn("Partie 6 - Classes");
 
-import {MyUser} from './docs/classes';
+import { MyUser } from './docs/classes';
 
 let myUser = new MyUser(1, 'Geerts');
 
 console.log('myUser :>> ', myUser);
+
+// Duck Typing
+
+import { Point, Geometry, getX, getY } from "./docs/classes";
+
+console.log('getX(new Point):>> ', getX(new Point));
+console.log('getX(new Geometry):>> ', getX(new Geometry));
+
+console.log('getY(new Point):>> ', getY(new Point));
+console.log('getY(new Geometry):>> ', getY(new Geometry));
+
+import { AGeometry, Triangle, Points, Carre } from './docs/classes';
+
+// const ag = new AGeometry(); // Impossible d'instancier une classe abstraite! 
+
+const p = new Points();
+p.x = 2;
+p.y = 5;
+
+const c = new Carre();
+c.x = 5;
+
+console.log('object :>> ', p.logMe());
+console.log('object :>> ', c.logMe());
+
+console.log('object :>> ', p.perimetre());
+console.log('object :>> ', p.air());
+
+console.log('object :>> ', c.perimetre());
+console.log('object :>> ', c.air());
+
+import { Personne, Femme, Homme } from "./docs/classes";
+
+// const p = new Personne()
+
+const h = new Homme('Geerts', 'Quentin', new Date('1996-04-03'), 0.5);
+const f = new Femme('Geerts', 'Mélanie', new Date(), false);
+
+h.parler('Bonjour les JS !')
+f.parler('Bonjour les JS !')

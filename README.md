@@ -7,7 +7,8 @@
 4. Custom types
 5. Generics
 6. Classes
-7. Decorator
+7. Surchages
+8. Decorator
 
 # Partie d'installation et démarrage
 
