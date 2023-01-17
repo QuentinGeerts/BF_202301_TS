@@ -275,4 +275,4 @@ let melanie = new P('Geerts', 'Mélanie', new Date('08-05-1988'), 'f', [{nom: 'W
 quentin.animaux = [noirau, bill, titi]
 
 console.log('quentin :>> ', quentin);
-console.log('quentin :>> ', melanie);
+console.log('melanie :>> ', melanie);
