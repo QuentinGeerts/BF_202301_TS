@@ -252,19 +252,40 @@ export class DateConverter {
 // C'est un genre de contract
 // Une classe qui implémente une interface se doit d'implémenter tous les membres de celle-ci
 
-interface Voiture {
+
+// Une interface peut hériter d'une ou plusieurs autres interfaces
+//      interface IMonInterface extends IInterface1, IInterface2, ....
+// Une classe peut hériter que d'une seule classe
+// Une classe peut implémenter une ou plusieurs interfaces
+//      class MaClasse extends AutreClasse implements IInterface1, Interface2, ...
+
+interface Vehicule {
+    nbRoues: number;
+}
+
+interface ILogger {
+    log (): string;
+}
+
+interface Action {
+    avance (vitesseActuelle: number): number;
+    recule (vitesseActuelle: number): number;
+}
+
+interface Voiture extends Vehicule, Action {
     carburant: string;
     typeMoteur: string;
     giletJaune: number;
     boiteVitesse: { auto: boolean, manuel: boolean; };
 
-    avance (vitesseActuelle: number): number;
-    recule (vitesseActuelle: number): number;
+    
 }
 
-class Audi implements Voiture {
-    modele: string = ''
+class Audi implements Voiture, ILogger {
     
+    nbRoues: number;
+    modele: string = '';
+
     carburant: string = 'diesel';
     typeMoteur: string;
     giletJaune: number;
@@ -277,10 +298,15 @@ class Audi implements Voiture {
         throw new Error("Method not implemented.");
     }
 
+    log (): string {
+        throw new Error("Method not implemented.");
+    }
+
 }
 
 
 class VW implements Voiture {
+    nbRoues: number;
     carburant: string;
     typeMoteur: string;
     giletJaune: number;
@@ -293,3 +319,4 @@ class VW implements Voiture {
     }
 
 }
+
