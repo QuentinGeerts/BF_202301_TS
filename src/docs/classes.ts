@@ -191,14 +191,14 @@ export abstract class Personne {
 export class Femme extends Personne {
     genre: string = 'f';
     estEnceinte: boolean = false;
-    
+
     constructor (nom: string, prenom: string, date: Date, estEnceinte: boolean) {
         super(nom, prenom, date);
         this.estEnceinte = estEnceinte;
     }
-    
+
     faireMenage (): void {
-        console.log(`${this.prenom} fait le ménage`)
+        console.log(`${this.prenom} fait le ménage`);
     }
 
     get nomComplet (): string {
@@ -221,7 +221,7 @@ export class Homme extends Personne {
     }
 
     faireMenage (): void {
-        console.log(`${this.prenom} s'enfuit jouer`)
+        console.log(`${this.prenom} s'enfuit jouer`);
     }
 
     get nomComplet (): string {
@@ -230,7 +230,66 @@ export class Homme extends Personne {
 }
 
 // Mot-clefs : Static
+// Permet d'accéder aux membres d'une classe sans devoir l'instancier
 
+export class Calculatrice {
+
+    static readonly PI: number = 3.141592;
+
+    static addition (x: number, y: number): number {
+        return x + y;
+    }
+
+}
+
+export class DateConverter {
+    static convertTimeStampToDate (timestamp: string): Date {
+        return new Date(parseInt(timestamp));
+    }
+}
 
 // Mot-clefs : Interface (implements)
+// C'est un genre de contract
+// Une classe qui implémente une interface se doit d'implémenter tous les membres de celle-ci
 
+interface Voiture {
+    carburant: string;
+    typeMoteur: string;
+    giletJaune: number;
+    boiteVitesse: { auto: boolean, manuel: boolean; };
+
+    avance (vitesseActuelle: number): number;
+    recule (vitesseActuelle: number): number;
+}
+
+class Audi implements Voiture {
+    modele: string = ''
+    
+    carburant: string = 'diesel';
+    typeMoteur: string;
+    giletJaune: number;
+    boiteVitesse: { auto: boolean; manuel: boolean; } = { auto: true, manuel: false };
+
+    avance (vitesseActuelle: number): number {
+        throw new Error("Method not implemented.");
+    }
+    recule (vitesseActuelle: number): number {
+        throw new Error("Method not implemented.");
+    }
+
+}
+
+
+class VW implements Voiture {
+    carburant: string;
+    typeMoteur: string;
+    giletJaune: number;
+    boiteVitesse: { auto: boolean; manuel: boolean; };
+    avance (vitesseActuelle: number): number {
+        throw new Error("Method not implemented.");
+    }
+    recule (vitesseActuelle: number): number {
+        throw new Error("Method not implemented.");
+    }
+
+}

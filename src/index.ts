@@ -231,3 +231,21 @@ const f = new Femme('Geerts', 'Mélanie', new Date(), false);
 
 h.parler('Bonjour les JS !')
 f.parler('Bonjour les JS !')
+
+// Mot-clef : static
+
+import { Calculatrice } from "./docs/classes";
+
+console.log(Calculatrice.addition(5, 3));
+
+// Calculatrice.PI = 2 // Impossible à changer avec un readonly
+
+console.log(Calculatrice.addition(Calculatrice.PI, 1));
+
+const calc = new Calculatrice()
+// calc.addition(5, 3) // Impossible d'appeler un membre static sur une instance
+
+import { DateConverter } from "./docs/classes";
+
+console.log(DateConverter.convertTimeStampToDate(new Date().getTime().toString()));
+
