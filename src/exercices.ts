@@ -22,6 +22,7 @@ const increment: (e: MouseEvent) => void = (event: MouseEvent) => {
     if (total) total.innerText = (++valeur).toString();
 };
 
+// const decrement: Function = (event: MouseEvent) => {
 const decrement: (e: MouseEvent) => void = (event: MouseEvent) => {
     // event.preventDefault();
     if (total) total.innerText = (--valeur).toString();

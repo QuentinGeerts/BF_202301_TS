@@ -3,11 +3,11 @@
 0. Installation et démarrage
 1. Types
 2. Assertion de types
-3. Narrowing
+3. Narrowing => Exercice 01
 4. Custom types
 5. Generics
 6. Classes
-7. Decarator
+7. Decorator
 
 # Partie d'installation et démarrage
 
@@ -42,12 +42,12 @@ Acceptez l'installation de webpack-cli/generators
 ---
 
 Ensuite, créer deux fichiers à la racine du projet :
-- tsconfig.js
+- tsconfig.json
 - webpack.config.js
 
 ---
 
-**tsconfig.js :**
+**tsconfig.json :**
 
 ```json
 {

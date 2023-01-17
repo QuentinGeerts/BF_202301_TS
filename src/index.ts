@@ -70,6 +70,12 @@ let admin: Admin = {
     firstName: "Quentin"
 };
 
+let ad: Admin = {
+    roleId: 5,
+    lastName: "",
+    firstName: ""
+};
+
 let admin2: Admin2 = {
     roleId: "",
     lastName: "",
@@ -83,6 +89,7 @@ let idString: Id = "a";
 // let idBooleen: Id = true;
 
 console.log('idInt :>> ', idInt);
+console.log('typeof idInt :>> ', typeof idInt);
 console.log('idString :>> ', idString);
 // console.log('idBooleen :>> ', idBooleen);
 
@@ -91,19 +98,26 @@ let date2: DateString = new Date().toString();
 console.log('date :>> ', date);
 console.log('date :>> ', date2);
 
+
 /**
  * Partie 5 - Generics
  */
 
 console.warn("Partie 5 - Generics");
 
-import { identity, identity2, identity3 } from './docs/generics';
+import { GenericNumber, getProperty, identity, identity2, identity3, identity4, loggingI, Mathematique } from './docs/generics';
 
 // On perd le type dynamique passé en paramètre à cause du any
-const id1 = identity(3); 
+const id1_1 = identity(3);
+const id1_2 = identity('toto');
+const id1_3 = identity(true);
 
-console.log('id1 :>> ', id1);
-console.log('typeof id1 :>> ', typeof id1);
+console.log('id1_1 :>> ', id1_1);
+console.log('typeof id1_1 :>> ', typeof id1_1);
+console.log('id1_2 :>> ', id1_2);
+console.log('typeof id1_2 :>> ', typeof id1_2);
+console.log('id1_3 :>> ', id1_3);
+console.log('typeof id1_3 :>> ', typeof id1_3);
 
 const id2 = identity2<string>('e');
 console.log('id2 :>> ', id2);
@@ -117,6 +131,51 @@ const id4 = identity2<Id>('a');
 console.log('id4 :>> ', id4);
 console.log('typeof id4 :>> ', typeof id4);
 
-const id5 = identity3<string, number>("Coucou", 42)
+// identity2<Admin>(3); Pas possible car c'est un number et non un admin
+
+const id5 = identity3<string, number>("Coucou", 42);
 console.log('id5 :>> ', id5);
-console.log('typeof id5 :>> ', typeof id5);
+
+const id6 = identity3<string, string>('Hello', 'TypeScript');
+console.log('id6 :>> ', id6);
+
+const id7 = identity4<number>([1, 2, 3, 4]);
+console.log('id7 :>> ', id7);
+
+let nb = new GenericNumber<number>();
+
+nb.zeroValue;
+nb.add = function (x, y) {
+    return x + y;
+};
+
+console.log(nb.add(3, 5));
+
+const lg = loggingI<number[]>([5, 5, 6, 3, 4, 8]);
+console.log('lg :>> ', lg);
+
+//  Ne fonctionne pas
+// const lg0 = loggingI<number>(5)
+// const lg0 = loggingI(5)
+// console.log('lg0 :>> ', lg0);
+
+let x: Admin = {
+    roleId: 0,
+    lastName: "Geerts",
+    firstName: "Quentin"
+};
+
+console.log('x :>> ', getProperty(x, 'lastName'));
+// console.log('x :>> ', getProperty(x, 'hello')); // Ne fonctionne pas car pas une clef de Type de l'objet (Admin)
+// console.log('x :>> ', getProperty(x, 3));
+
+
+let myTotal = new Mathematique<number, number>();
+myTotal.add = (x, y) => x + y
+myTotal.sub = (x, y) => x - y
+
+console.log(myTotal.add(5, 6));
+console.log(myTotal.sub(5, 6));
+
+
+// let myTotal2 = new Mathematique<string, string>();
