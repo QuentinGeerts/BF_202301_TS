@@ -104,6 +104,12 @@ export function getY (p: Point | Geometry) {
 
 // Le mot-clef 'abstract' peut se mettre sur : une classe, une propriété, un accesseur/mutateur, une fonction
 
+// Utilisation : Permet de créer une certaine structure imposées (non instanciable) où l'on peut déclarer les différents membres :
+// (propriétés + getters/setters + méthodes + constructeur) avec ou sans corps (ce qui se trouve entre les accolades d'une fonction)
+
+// Signature d'une fonction : nom de la fonction + paramètres + type de retour
+// Prototype d'une fonction : nom de la fonction + paramètres
+
 export abstract class AGeometry {
     x: number;
     y: number;
@@ -231,6 +237,7 @@ export class Homme extends Personne {
 
 // Mot-clefs : Static
 // Permet d'accéder aux membres d'une classe sans devoir l'instancier
+// Directement sur le nom de la classe (exemple : Calculatrice.PI ou Calculatrice.addition(2, 4))
 
 export class Calculatrice {
 
@@ -259,20 +266,35 @@ export class DateConverter {
 // Une classe peut implémenter une ou plusieurs interfaces
 //      class MaClasse extends AutreClasse implements IInterface1, Interface2, ...
 
-interface Vehicule {
+// Utilisation : Permet de créer structure imposée contenant uniquement propriétés et les signatures des fonctions
+
+// Différences entre classe abstraite et interface :
+
+/*
+
+Intitulé                                        Classe Abstraite            Interface
+
+Instanciable                                            NON                     NON
+Peut contenir des props                                 OUI                     OUI
+Peut contenir des fonctions implémentées                OUI                     NON
+...
+
+*/
+
+export interface Vehicule {
     nbRoues: number;
 }
 
-interface ILogger {
+export interface ILogger {
     log (): string;
 }
 
-interface Action {
+export interface Action {
     avance (vitesseActuelle: number): number;
     recule (vitesseActuelle: number): number;
 }
 
-interface Voiture extends Vehicule, Action {
+export interface Voiture extends Vehicule, Action {
     carburant: string;
     typeMoteur: string;
     giletJaune: number;
@@ -281,7 +303,7 @@ interface Voiture extends Vehicule, Action {
     
 }
 
-class Audi implements Voiture, ILogger {
+export class Audi implements Voiture, ILogger {
     
     nbRoues: number;
     modele: string = '';

@@ -249,6 +249,13 @@ import { DateConverter } from "./docs/classes";
 
 console.log(DateConverter.convertTimeStampToDate(new Date().getTime().toString()));
 
+// Interfaces
+
+import { Audi, ILogger, Voiture, Action, Vehicule } from "./docs/classes";
+
+const v = new Audi()
+
+
 /**
  * Partie 7 - Overloads
  */
